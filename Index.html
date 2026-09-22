@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proteja seus dados | Segurança Digital</title>
+<style>
+:root{
+  --navy:#071a33;
+  --blue:#155eef;
+  --cyan:#12b5cb;
+  --text:#132238;
+  --muted:#64748b;
+  --bg:#f5f8fc;
+  --white:#fff;
+  --line:#e4eaf2;
+  --green:#0f9f6e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+a{text-decoration:none;color:inherit}
+.nav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(7,26,51,.94);
+  backdrop-filter:blur(12px);
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.nav-inner{
+  max-width:1120px;margin:auto;padding:15px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+.shield{
+  width:34px;height:34px;border-radius:10px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  font-size:18px;
+}
+.nav-link{font-size:14px;color:#d8e4f3}
+.hero{
+  color:white;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(18,181,203,.28),transparent 30%),
+    radial-gradient(circle at 20% 0%,rgba(21,94,239,.35),transparent 34%),
+    linear-gradient(135deg,#06172e 0%,#0b2c55 58%,#073b52 100%);
+  overflow:hidden;
+}
+.hero-inner{
+  max-width:1120px;margin:auto;padding:78px 22px 86px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center;
+}
+.eyebrow{
+  display:inline-flex;gap:8px;align-items:center;
+  padding:7px 11px;border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;background:rgba(255,255,255,.07);
+  color:#d9f7fb;font-size:13px;font-weight:700;
+}
+.hero h1{
+  margin:18px 0 18px;
+  font-size:clamp(2.5rem,5vw,4.6rem);
+  line-height:1.02;letter-spacing:-2.5px;
+}
+.hero h1 span{color:#5fe3ef}
+.hero p{
+  margin:0;max-width:680px;color:#d6e3f2;
+  font-size:18px;line-height:1.7;
+}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 19px;border-radius:12px;font-weight:800;
+  transition:.2s transform,.2s box-shadow;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:white;color:var(--navy);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.btn-ghost{border:1px solid rgba(255,255,255,.22);color:white;background:rgba(255,255,255,.05)}
+.hero-note{margin-top:15px;font-size:12px;color:#a9bdd3}
+.phone{
+  position:relative;max-width:330px;margin:auto;
+  padding:13px;border-radius:30px;background:#081426;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
+  transform:rotate(2deg);
+}
+.phone-screen{
+  border-radius:22px;overflow:hidden;background:#f7fbff;
+  color:var(--text);padding:25px 20px 28px;
+}
+.phone-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
+.status{
+  margin-top:28px;padding:14px;border-radius:14px;
+  background:#eaf8f3;color:#087a56;font-weight:800;font-size:13px;
+}
+.mini-title{font-size:22px;font-weight:900;line-height:1.1;margin:22px 0 10px}
+.mini-text{font-size:13px;color:var(--muted);line-height:1.5}
+.mini-row{display:flex;gap:9px;margin-top:18px}
+.mini-card{flex:1;padding:12px;border:1px solid var(--line);border-radius:12px;background:white;font-size:11px;font-weight:800}
+main{max-width:1120px;margin:auto;padding:70px 22px}
+.section-head{max-width:700px;margin-bottom:30px}
+.kicker{color:var(--blue);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.1px}
+h2{font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.12;margin:8px 0 12px;letter-spacing:-1px}
+.lead{color:var(--muted);font-size:17px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{
+  background:white;border:1px solid var(--line);border-radius:18px;
+  padding:24px;box-shadow:0 8px 28px rgba(20,50,90,.05);
+}
+.icon{
+  width:45px;height:45px;border-radius:13px;
+  display:grid;place-items:center;background:#edf4ff;color:var(--blue);
+  font-size:20px;margin-bottom:18px;
+}
+.card h3{margin:0 0 8px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{padding:27px;border-radius:18px;background:#0b2343;color:white}
+.number{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:#1d6df2;font-weight:900;margin-bottom:18px
+}
+.step h3{margin:0 0 8px}.step p{margin:0;color:#c7d6e8;font-size:14px;line-height:1.6}
+.alert{
+  margin-top:55px;border-radius:22px;padding:30px;
+  background:linear-gradient(135deg,#eaf5ff,#eefcf8);
+  border:1px solid #d7e8f7;display:flex;align-items:center;gap:22px;
+}
+.alert-icon{font-size:32px}
+.alert h3{margin:0 0 5px}.alert p{margin:0;color:var(--muted)}
+.cta{
+  margin-top:70px;border-radius:25px;padding:55px 30px;text-align:center;
+  color:white;background:linear-gradient(135deg,#0b2343,#0a6070);
+}
+.cta h2{max-width:680px;margin:0 auto 12px}
+.cta p{max-width:620px;margin:0 auto;color:#d8e9f1;line-height:1.6}
+.cta .btn{margin-top:24px}
+footer{
+  background:#06172e;color:#9fb2c8;text-align:center;padding:28px 20px;font-size:13px
+}
+@media(max-width:850px){
+  .hero-inner{grid-template-columns:1fr;padding-top:55px}
+  .phone{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .nav-link{display:none}
+  .hero h1{letter-spacing:-1.5px}
+  .grid{grid-template-columns:1fr}
+  main{padding:50px 18px}
+  .alert{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#"><span class="shield">✓</span> Segurança Digital</a>
+    <a class="nav-link" href="#orientacoes">Orientações práticas</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">🔐 Informação também é proteção</span>
+      <h1>Seus dados.<br><span>Sua segurança.</span></h1>
+      <p>
+        Saiba reconhecer sinais de golpes, proteger suas informações e agir com mais
+        segurança diante de mensagens e solicitações suspeitas.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#orientacoes">Quero aprender a me proteger</a>
+        <a class="btn btn-ghost" href="#sinais">Ver sinais de alerta</a>
+      </div>
+      <div class="hero-note">Conteúdo educativo. Nunca informe senhas ou códigos de autenticação por mensagens.</div>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="phone-screen">
+        <div class="phone-top"><strong>Segurança</strong><span>● ● ●</span></div>
+        <div class="status">✓ Comunicação segura começa com verificação</div>
+        <div class="mini-title">Pare. Verifique. Proteja.</div>
+        <div class="mini-text">Uma mensagem convincente ainda pode ser falsa. Antes de agir, confirme a origem.</div>
+        <div class="mini-row">
+          <div class="mini-card">🔎 Verifique</div>
+          <div class="mini-card">🛡️ Proteja</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="sinais">
+    <div class="section-head">
+      <div class="kicker">01 • Reconheça</div>
+      <h2>Quatro sinais que merecem atenção</h2>
+      <p class="lead">Golpes podem usar mensagens convincentes. Observe o contexto antes de clicar, responder ou fornecer qualquer informação.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="icon">⚠</div>
+        <h3>Urgência exagerada</h3>
+        <p>Desconfie de mensagens que pressionam você a agir imediatamente para evitar um suposto bloqueio ou problema.</p>
+      </article>
+      <article class="card">
+        <div class="icon">↗</div>
+        <h3>Links inesperados</h3>
+        <p>Evite acessar links recebidos de forma inesperada. Prefira abrir o aplicativo ou site oficial diretamente.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🔑</div>
+        <h3>Pedido de códigos</h3>
+        <p>Senhas e códigos de autenticação são informações sensíveis e não devem ser compartilhados por mensagens.</p>
+      </article>
+      <article class="card">
+        <div class="icon">◌</div>
+        <h3>Comunicação estranha</h3>
+        <p>Observe erros, endereços suspeitos, alterações incomuns e solicitações que não fazem sentido para você.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="orientacoes" style="margin-top:85px">
+    <div class="section-head">
+      <div class="kicker">02 • Aja com segurança</div>
+      <h2>Antes de fornecer qualquer informação</h2>
+      <p class="lead">Uma pausa de alguns segundos pode evitar uma decisão tomada sob pressão.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <div class="number">1</div>
+        <h3>Pare</h3>
+        <p>Não responda imediatamente a uma solicitação inesperada ou urgente.</p>
+      </article>
+      <article class="step">
+        <div class="number">2</div>
+        <h3>Verifique</h3>
+        <p>Acesse o aplicativo ou site oficial diretamente, sem utilizar o link recebido na mensagem.</p>
+      </article>
+      <article class="step">
+        <div class="number">3</div>
+        <h3>Confirme</h3>
+        <p>Se ainda houver dúvida, procure os canais oficiais da instituição para confirmar a informação.</p>
+      </article>
+    </div>
+
+    <div class="alert">
+      <div class="alert-icon">🛡️</div>
+      <div>
+        <h3>Proteção de dados começa com cuidado</h3>
+        <p>Evite compartilhar informações desnecessárias, mantenha seus aplicativos atualizados e utilize os recursos de segurança disponíveis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="kicker" style="color:#76e7ee">03 • Próximo passo</div>
+    <h2>Mais informação. Menos espaço para decisões no impulso.</h2>
+    <p>Aprenda a observar sinais de alerta e a verificar uma comunicação antes de fornecer informações pessoais.</p>
+    <a class="btn btn-primary" href="#sinais">QUERO APRENDER A ME PROTEGER</a>
+  </section>
+</main>
+
+<footer>
+  Projeto Integrador • Comunicação, privacidade digital e segurança
+</footer>
+
+</body>
+</html>
